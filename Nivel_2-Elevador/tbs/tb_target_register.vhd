@@ -35,6 +35,7 @@ architecture behavior of tb_target_register is
     -- Definição do período do clock
     constant clk_period : time := 10 ns;
 
+    signal sim_finished : BOOLEAN := false;
 begin
 
     -- Instanciação do UUT
@@ -49,12 +50,15 @@ begin
     );
 
     -- Processo de geração de Clock
-    clk_process : process
+    clk_gen_proc : process
     begin
-        clk <= '0';
-        wait for clk_period/2;
-        clk <= '1';
-        wait for clk_period/2;
+        while not sim_finished loop 
+            clk <= '0';
+            wait for clk_period / 2;
+            clk <= '1';
+            wait for clk_period / 2;
+        end loop;
+        wait;
     end process;
 
     -- Processo de Estímulo
@@ -92,6 +96,7 @@ begin
         wait for 10 ns;
         reset <= '0';
 
+        sim_finished <= true;
         wait;
     end process;
 
