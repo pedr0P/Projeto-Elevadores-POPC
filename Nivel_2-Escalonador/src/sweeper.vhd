@@ -5,23 +5,22 @@ use IEEE.numeric_std.all;
 entity sweeper is
     generic (w : natural := 32);
     port (
-        signal r_call_up  : in STD_LOGIC_VECTOR(w-1 downto 0);
-        signal r_call_down : in STD_LOGIC_VECTOR(w-1 downto 0);
+        signal r_call_up  : in STD_LOGIC_VECTOR(w-1 downto 0) := (others => '0');
+        signal r_call_down : in STD_LOGIC_VECTOR(w-1 downto 0) := (others => '0');
 
-        signal r_scan_priority : in STD_LOGIC;
-
-        signal next_floor : out STD_LOGIC_VECTOR(4 downto 0); -- O andar a ser limpo
-        signal next_dir   : out STD_LOGIC; -- 0 para descer, 1 para subir
-        signal call_detected : out STD_LOGIC
+        signal next_floor : out STD_LOGIC_VECTOR(4 downto 0) := (others => '0'); -- O andar a ser limpo
+        signal next_dir   : out STD_LOGIC := '0'; -- 0 para descer, 1 para subir
+        signal call_detected : out STD_LOGIC := '0'
     );
 end sweeper;
 
 architecture comportamental of sweeper is
 begin
 
-    process(r_call_up, r_call_down, r_scan_priority)
+    process(r_call_up, r_call_down)
         variable v_found : boolean;
 
+        variable r_scan_priority : STD_LOGIC := '0';
     begin
         next_floor    <= (others => '0');
         next_dir      <= '0';
@@ -50,7 +49,8 @@ begin
                     end if;
                 end loop;
             end if;
-
+            
+            r_scan_priority := '1';
         else
 
             for i in w-1 downto 0 loop
@@ -74,6 +74,7 @@ begin
                 end loop;
             end if;
             
+            r_scan_priority := '0';
         end if;
         
     end process;

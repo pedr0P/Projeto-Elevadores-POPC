@@ -4,15 +4,15 @@ use IEEE.numeric_std.all;
 
 entity target_register is
     port (
-        signal clk : in STD_LOGIC;
-        signal reset : in STD_LOGIC;
-        signal ld_call : in STD_LOGIC;
+        signal clk : in STD_LOGIC := '0';
+        signal reset : in STD_LOGIC := '0';
+        signal ld_call : in STD_LOGIC := '0';
 
-        signal next_floor : in STD_LOGIC_VECTOR(4 downto 0); -- O andar a ser limpo
-        signal next_dir   : in STD_LOGIC; -- 0 para descer, 1 para subir
+        signal next_floor : in STD_LOGIC_VECTOR(4 downto 0) := (others => '0'); -- O andar a ser limpo
+        signal next_dir   : in STD_LOGIC := '0'; -- 0 para descer, 1 para subir
         
-        signal r_next_floor : out STD_LOGIC_VECTOR(4 downto 0); -- O andar a ser limpo
-        signal r_next_dir   : out STD_LOGIC
+        signal r_next_floor : out STD_LOGIC_VECTOR(4 downto 0) := (others => '0'); -- O andar a ser limpo
+        signal r_next_dir   : out STD_LOGIC := '0'
     );
 end target_register;
 

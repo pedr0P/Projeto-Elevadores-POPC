@@ -10,14 +10,14 @@ architecture behavior of tb_target_register is
     -- Declaração do Componente (Unit Under Test - UUT)
     component target_register
     port(
-        clk          : in  std_logic;
-        reset        : in  std_logic;
-        ld_call      : in  std_logic;
-        next_floor   : in  std_logic_vector(4 downto 0);
-        next_dir     : in  std_logic;
+        clk          : in  std_logic := '0';
+        reset        : in  std_logic := '0';
+        ld_call      : in  std_logic := '0';
+        next_floor   : in  std_logic_vector(4 downto 0) := (others => '0');
+        next_dir     : in  std_logic := '0';
         
-        r_next_floor : out std_logic_vector(4 downto 0);
-        r_next_dir   : out std_logic
+        r_next_floor : out std_logic_vector(4 downto 0) := (others => '0');
+        r_next_dir   : out std_logic := '0'
     );
     end component;
 

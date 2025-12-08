@@ -4,7 +4,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity clear_dec is
     port ( 
-             r_next_floor       : in STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
+             r_next_floor       : in STD_LOGIC_VECTOR(4 downto 0) := (others => '0');
              r_next_dir         : in STD_LOGIC := '0';
              clear_call         : in STD_LOGIC := '0';
 
@@ -20,12 +20,18 @@ begin
     begin
         if (clear_call = '1') then
             if (r_next_dir = '1') then
-                clear_floor_up <= r_next_floor;
+                clear_command <= '1';
+                clear_floor_up <= (others => '0');
+                clear_floor_up(TO_INTEGER(UNSIGNED(r_next_floor))) <= '1';
                 clear_floor_down <= (others => '0');
             else
+                clear_command <= '1';
                 clear_floor_up <= (others => '0');
-                clear_floor_down <= r_next_floor;
+                clear_floor_down <= (others => '0');
+                clear_floor_down(TO_INTEGER(UNSIGNED(r_next_floor))) <= '1';
             end if;
+        else 
+            clear_command <= '0';
         end if;
     end process;
 end rtl;

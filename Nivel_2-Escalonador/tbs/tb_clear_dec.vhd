@@ -9,7 +9,7 @@ architecture test of tb_clear_dec is
     constant WAIT_TIME  : time := 10 ns;
     component clear_dec is
         port ( 
-                 r_next_floor       : in STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
+                 r_next_floor       : in STD_LOGIC_VECTOR(4 downto 0) := (others => '0');
                  r_next_dir         : in STD_LOGIC := '0';
                  clear_call         : in STD_LOGIC := '0';
 
@@ -20,7 +20,7 @@ architecture test of tb_clear_dec is
     end component;
 
     -- Input Signals:
-    signal s_r_next_floor   : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
+    signal s_r_next_floor   : STD_LOGIC_VECTOR(4 downto 0) := (others => '0');
     signal s_r_next_dir     : STD_LOGIC := '0';
     signal s_clear_call     : STD_LOGIC := '0';
 
@@ -46,7 +46,7 @@ begin
 
         -- Case 1: Clear 'up' calls in the register ####################################
         report "Setting up signals for first case...";
-        s_r_next_floor(7) <= '1';
+        s_r_next_floor <= "00100";
         s_r_next_dir <= '1';
         report "Activating clear_call!";
         s_clear_call <= '1';
@@ -54,11 +54,11 @@ begin
         wait for WAIT_TIME;
 
         report "Clearing last test case's signal...";
-        s_r_next_floor(7) <= '0';
+        s_r_next_floor <= (others => '0');
 
         -- Case 2: Clear 'down' calls in the register ####################################
         report "Setting up signals for first case...";
-        s_r_next_floor(25) <= '1';
+        s_r_next_floor <= "01111";
         s_r_next_dir <= '0';
         report "Activating clear_call!";
         s_clear_call <= '1';

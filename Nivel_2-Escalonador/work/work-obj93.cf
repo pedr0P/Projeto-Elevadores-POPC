@@ -1,0 +1,58 @@
+v 4
+file "/home/Pedr0-PC/gits/config-and-stuff/universal/courses/2025.2/circ_log/Projeto-Elevadores-POPC/Nivel_2-Elevador/" "POPC/tb_nivel_2.vhd" "d1a99ea262a07c1747888fb38cb46b5ed1bb95f8" "20251208160151.206":
+  entity tb_nivel_2 at 1( 0) + 0 on 1877;
+  architecture test of tb_nivel_2 at 8( 112) + 0 on 1878;
+file "/home/Pedr0-PC/gits/config-and-stuff/universal/courses/2025.2/circ_log/Projeto-Elevadores-POPC/Nivel_2-Elevador/" "POPC/po.vhd" "6b8ca1c66b1142773ae38a271de7502572f211d1" "20251208160151.196":
+  entity po at 1( 0) + 0 on 1871;
+  architecture rtl of po at 39( 1863) + 0 on 1872;
+file "/home/Pedr0-PC/gits/config-and-stuff/universal/courses/2025.2/circ_log/Projeto-Elevadores-POPC/Nivel_2-Elevador/" "POPC/pc.vhd" "eb3e70ac72cbb800545fff32101bd92974fdff80" "20251208160151.199":
+  entity pc at 1( 0) + 0 on 1873;
+  architecture rtl of pc at 17( 387) + 0 on 1874;
+file "/home/Pedr0-PC/gits/config-and-stuff/universal/courses/2025.2/circ_log/Projeto-Elevadores-POPC/Nivel_2-Elevador/" "src/sweeper.vhd" "7d3d614df286c8c97fc76ff8e5401668f91e9497" "20251208160151.190":
+  entity sweeper at 1( 0) + 0 on 1867;
+  architecture comportamental of sweeper at 17( 556) + 0 on 1868;
+file "/home/Pedr0-PC/gits/config-and-stuff/universal/courses/2025.2/circ_log/Projeto-Elevadores-POPC/Nivel_2-Elevador/" "src/clear_dec.vhd" "005719524334985f14424f1f89dd4413a64018eb" "20251208160151.179":
+  entity clear_dec at 1( 0) + 0 on 1861;
+  architecture rtl of clear_dec at 17( 558) + 0 on 1862;
+file "/home/Pedr0-PC/gits/config-and-stuff/universal/courses/2025.2/circ_log/Projeto-Elevadores-POPC/Nivel_2-Elevador/" "src/legacy_components/cost_calculator.vhd" "abe0b56887bcce4279ff6a2d17c6e238a72ba1d3" "20251208160151.173":
+  entity cost_calculator at 1( 0) + 0 on 1857;
+  architecture comportamental of cost_calculator at 15( 701) + 0 on 1858;
+file "/home/Pedr0-LP/gits/config-and-stuff/universal/courses/2025.2/circ_log/Projeto-Elevadores-POPC/Nivel_2-Elevador/" "tbs/tb_target_register.vhd" "0a47816315e538964b5d1a48cdfeb48edda21650" "20251207182927.793":
+  entity tb_target_register at 1( 0) + 0 on 85;
+  architecture behavior of tb_target_register at 8( 124) + 0 on 86;
+file "/home/Pedr0-LP/gits/config-and-stuff/universal/courses/2025.2/circ_log/Projeto-Elevadores-POPC/Nivel_2-Elevador/" "tbs/tb_reg_cham_ext.vhd" "a94bcaeebf000a6f60b981e509bb0dbb9323a25b" "20251207182927.779":
+  entity tb_reg_cham_ext at 1( 0) + 0 on 81;
+  architecture sim of tb_reg_cham_ext at 8( 167) + 0 on 82;
+file "/home/Pedr0-LP/gits/config-and-stuff/universal/courses/2025.2/circ_log/Projeto-Elevadores-POPC/Nivel_2-Elevador/" "tbs/tb_out_gen.vhd" "17d1efea5d35ad49a51ebd62b8fd49c3a158c826" "20251207182927.767":
+  entity tb_out_gen at 1( 0) + 0 on 77;
+  architecture test of tb_out_gen at 8( 112) + 0 on 78;
+file "/home/Pedr0-LP/gits/config-and-stuff/universal/courses/2025.2/circ_log/Projeto-Elevadores-POPC/Nivel_2-Elevador/" "tbs/tb_clear_dec.vhd" "62081424ba5e157875c6d7ae39eac1ae44b8a19c" "20251207182927.760":
+  entity tb_clear_dec at 1( 0) + 0 on 75;
+  architecture test of tb_clear_dec at 8( 116) + 0 on 76;
+file "/home/Pedr0-LP/gits/config-and-stuff/universal/courses/2025.2/circ_log/Projeto-Elevadores-POPC/Nivel_2-Elevador/" "tbs/tb_pc.vhd" "c3d7998e4fe9fa430f75839c2ea379f309a53413" "20251207182927.774":
+  entity tb_pc at 1( 0) + 0 on 79;
+  architecture test of tb_pc at 8( 102) + 0 on 80;
+file "/home/Pedr0-LP/gits/config-and-stuff/universal/courses/2025.2/circ_log/Projeto-Elevadores-POPC/Nivel_2-Elevador/" "tbs/tb_sweeper.vhd" "716afb03014c48ce60f1846bd8cef0612193f269" "20251207182927.785":
+  entity tb_sweeper at 1( 0) + 0 on 83;
+  architecture behavior of tb_sweeper at 8( 108) + 0 on 84;
+file "/home/Pedr0-LP/gits/config-and-stuff/universal/courses/2025.2/circ_log/Projeto-Elevadores-POPC/Nivel_2-Elevador/" "tb_po.vhd" "5372c9cee4ac3dfcb4547c3b071f79057a2aa6ed" "20251207204513.987":
+  entity tb_po at 1( 0) + 0 on 631;
+  architecture test of tb_po at 8( 102) + 0 on 632;
+file "/home/Pedr0-PC/gits/config-and-stuff/universal/courses/2025.2/circ_log/Projeto-Elevadores-POPC/Nivel_2-Elevador/" "src/legacy_components/comparador_custo.vhd" "fd28fdc9b3a0af9f95f756cecdec2763d43ab55c" "20251208160151.169":
+  entity comparador_custo at 1( 0) + 0 on 1855;
+  architecture comportamental of comparador_custo at 21( 840) + 0 on 1856;
+file "/home/Pedr0-PC/gits/config-and-stuff/universal/courses/2025.2/circ_log/Projeto-Elevadores-POPC/Nivel_2-Elevador/" "src/legacy_components/custo_distancia.vhdl" "51fdcbdb8a1c71d471be819dfdf147fd929e4df6" "20251208160151.176":
+  entity custo_distancia at 1( 0) + 0 on 1859;
+  architecture comportamental of custo_distancia at 13( 367) + 0 on 1860;
+file "/home/Pedr0-PC/gits/config-and-stuff/universal/courses/2025.2/circ_log/Projeto-Elevadores-POPC/Nivel_2-Elevador/" "src/out_gen.vhd" "c31a2333c6390247482c3adc2ea2b1b715056067" "20251208160151.183":
+  entity out_gen at 1( 0) + 0 on 1863;
+  architecture rtl of out_gen at 23( 875) + 0 on 1864;
+file "/home/Pedr0-PC/gits/config-and-stuff/universal/courses/2025.2/circ_log/Projeto-Elevadores-POPC/Nivel_2-Elevador/" "src/reg_cham_ext.vhd" "94048dbcb333dc815ff0cd92773b160e97fcbbcf" "20251208160151.186":
+  entity reg_cham_ext at 1( 0) + 0 on 1865;
+  architecture behavioral of reg_cham_ext at 21( 743) + 0 on 1866;
+file "/home/Pedr0-PC/gits/config-and-stuff/universal/courses/2025.2/circ_log/Projeto-Elevadores-POPC/Nivel_2-Elevador/" "src/target_register.vhd" "ab686422197803c2cfcf9fbb57eeb5c366f9dd43" "20251208160151.193":
+  entity target_register at 1( 0) + 0 on 1869;
+  architecture comportamental of target_register at 19( 618) + 0 on 1870;
+file "/home/Pedr0-PC/gits/config-and-stuff/universal/courses/2025.2/circ_log/Projeto-Elevadores-POPC/Nivel_2-Elevador/" "POPC/nivel_2.vhd" "bb4829fb7dc25f22767ae0cff2d0b45049dfe67b" "20251208160151.202":
+  entity nivel_2 at 1( 0) + 0 on 1875;
+  architecture rtl of nivel_2 at 29( 1142) + 0 on 1876;

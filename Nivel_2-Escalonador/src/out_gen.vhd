@@ -34,15 +34,20 @@ begin
             solicit_enable <= '1';
             solicit_direction <= direction;
             case (winner_elev) is
-                when "01" =>
+                when "00" =>
                     solicit_floor_um <= r_next_floor;
-                when "10" =>
+                when "01" =>
                     solicit_floor_dois <= r_next_floor;
-                when "11" =>
+                when "10" =>
                     solicit_floor_tres <= r_next_floor;
                 when others =>
                     solicit_enable <= '0';
             end case;
+        else
+            solicit_floor_um   <= (others => '0');
+            solicit_floor_dois <= (others => '0');
+            solicit_floor_tres <= (others => '0');
+            solicit_enable <= '0';
         end if;
     end if;
 end process;
