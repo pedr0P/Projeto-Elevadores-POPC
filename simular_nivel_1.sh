@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # Script para compilar, executar e visualizar a simulação do 'Nivel 1 - Elevador'
 #
@@ -14,7 +14,7 @@ TB_ENTITY="tb_nivel_1_elevador"
 VCD_FILE="simulacao_nivel_1.vcd"
 
 # O diretório onde os arquivos do Nível 1 estão
-DIR_NIVEL_1="Nível 1 - Elevador"
+DIR_NIVEL_1="Nivel_1-Elevador"
 
 # --- Execução ---
 
