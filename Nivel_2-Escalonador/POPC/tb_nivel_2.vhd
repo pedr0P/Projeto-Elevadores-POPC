@@ -41,9 +41,9 @@ architecture test of tb_nivel_2 is
     signal s_call_up   : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
     signal s_call_down : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
 
+    signal s_floor_sensor_0 : STD_LOGIC_VECTOR(4 downto 0) := (others => '0');
     signal s_floor_sensor_1 : STD_LOGIC_VECTOR(4 downto 0) := (others => '0');
     signal s_floor_sensor_2 : STD_LOGIC_VECTOR(4 downto 0) := (others => '0');
-    signal s_floor_sensor_3 : STD_LOGIC_VECTOR(4 downto 0) := (others => '0');
 
     signal s_moving_1       : STD_LOGIC_VECTOR(1 downto 0) := (others => '0');
     signal s_moving_2       : STD_LOGIC_VECTOR(1 downto 0) := (others => '0');
@@ -68,9 +68,9 @@ begin
         reset => s_reset,
         call_up => s_call_up,
         call_down => s_call_down,
-        floor_sensor_1 => s_floor_sensor_1,
-        floor_sensor_2 => s_floor_sensor_2,
-        floor_sensor_3 => s_floor_sensor_3,
+        floor_sensor_1 => s_floor_sensor_0,
+        floor_sensor_2 => s_floor_sensor_1,
+        floor_sensor_3 => s_floor_sensor_2,
         moving_1 => s_moving_1,
         moving_2 => s_moving_2,
         moving_3 => s_moving_3,
@@ -96,44 +96,43 @@ begin
     -- Test:
     STIM_PROC : process is
     begin
-        wait for C_CLK_PERIOD * 2;
         report "Iniciando simulacao do Nivel 2";
 
-        report "Test Case 1:";
+        report "Test Case 1 - Uma chamada subindo:";
         s_call_up(10) <= '1';
+        s_floor_sensor_0 <= STD_LOGIC_VECTOR(TO_UNSIGNED(0, 5));
         s_floor_sensor_1 <= STD_LOGIC_VECTOR(TO_UNSIGNED(0, 5));
-        s_floor_sensor_2 <= STD_LOGIC_VECTOR(TO_UNSIGNED(0, 5));
-        s_floor_sensor_3 <= STD_LOGIC_VECTOR(TO_UNSIGNED(7, 5));
+        s_floor_sensor_2 <= STD_LOGIC_VECTOR(TO_UNSIGNED(7, 5));
 
-        wait for C_CLK_PERIOD * 1;
-        s_call_up <= (others => '0');
+        wait for C_CLK_PERIOD * 1; s_call_up <= (others => '0'); s_call_down <= (others => '0'); wait for C_CLK_PERIOD * 2;
 
-        report "Esperando resultados...";
-        wait for C_CLK_PERIOD * 2;
+        report "Test Case 2 - Uma chamada descendo:";
+        s_call_down(1) <= '1';
+        s_floor_sensor_0 <= STD_LOGIC_VECTOR(TO_UNSIGNED(0, 5));
+        s_floor_sensor_1 <= STD_LOGIC_VECTOR(TO_UNSIGNED(0, 5));
+        s_floor_sensor_2 <= STD_LOGIC_VECTOR(TO_UNSIGNED(7, 5));
 
-        report "Test Case 2:";
-        s_call_up(1) <= '1';
-        s_call_up(17) <= '1';
-        s_floor_sensor_1 <= STD_LOGIC_VECTOR(TO_UNSIGNED(1, 5));
-        s_floor_sensor_2 <= STD_LOGIC_VECTOR(TO_UNSIGNED(15, 5));
-        s_floor_sensor_3 <= STD_LOGIC_VECTOR(TO_UNSIGNED(31, 5));
-        wait for C_CLK_PERIOD * 1;
-        s_call_up <= (others => '0');
+        wait for C_CLK_PERIOD * 1; s_call_up <= (others => '0'); s_call_down <= (others => '0'); wait for C_CLK_PERIOD * 2;
 
-        report "Esperando resultados...";
-        wait for C_CLK_PERIOD * 4;
+        report "Test Case 3 - Uma chamada de subida e outra de descida:";
+        s_call_up(19) <= '1';
+        s_call_down(30) <= '1';
+        s_floor_sensor_0 <= STD_LOGIC_VECTOR(TO_UNSIGNED(1, 5));
+        s_floor_sensor_1 <= STD_LOGIC_VECTOR(TO_UNSIGNED(15, 5));
+        s_floor_sensor_2 <= STD_LOGIC_VECTOR(TO_UNSIGNED(31, 5));
 
-        report "Test Case 3:";
-        s_call_up(26) <= '1';
-        s_call_down(9) <= '1';
-        s_floor_sensor_1 <= STD_LOGIC_VECTOR(TO_UNSIGNED(10, 5));
-        s_floor_sensor_2 <= STD_LOGIC_VECTOR(TO_UNSIGNED(0, 5));
-        s_floor_sensor_3 <= STD_LOGIC_VECTOR(TO_UNSIGNED(31, 5));
-        wait for C_CLK_PERIOD * 1;
-        s_call_up <= (others => '0');
+        wait for C_CLK_PERIOD * 1; s_call_up <= (others => '0'); s_call_down <= (others => '0'); wait for C_CLK_PERIOD * 5;
 
-        report "Esperando resultados...";
-        wait for C_CLK_PERIOD * 6;
+        report "Test Case 4 - Várias de subida (será o mesmo resultado independente da direção):";
+        s_call_up(10) <= '1';
+        s_call_down(5) <= '1';
+        s_call_up(20) <= '1';
+        s_call_down(30) <= '1';
+        s_floor_sensor_0 <= STD_LOGIC_VECTOR(TO_UNSIGNED(5, 5));
+        s_floor_sensor_1 <= STD_LOGIC_VECTOR(TO_UNSIGNED(15, 5));
+        s_floor_sensor_2 <= STD_LOGIC_VECTOR(TO_UNSIGNED(31, 5));
+
+        wait for C_CLK_PERIOD * 1; s_call_up <= (others => '0'); s_call_down <= (others => '0'); wait for C_CLK_PERIOD * 12;
 
         report "Simulacao concluida.";
 
